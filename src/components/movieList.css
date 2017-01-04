@@ -1,3 +1,7 @@
 ul {
    list-style: none;
 }
+#bsoverRide{
+overflow: visible;
+zoom: 1;
+}

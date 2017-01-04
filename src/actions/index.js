@@ -6,12 +6,12 @@ export const requestMovies = page => ({
     type: REQUEST_MOIVES,
     page
 })
-export const receiveMovies = movies => ({
+export const receiveMovies = data => ({
     type: RECEIVE_MOVIES,
-    movies
+    data
 })
 export const fetchMovies = page => dispatch => {
-    let myUrl = 'http://localhost:4000'
+    let myUrl = `http://localhost:4000/?p=${page}`
     dispatch(requestMovies(page))
     return fetch(myUrl).then(
         response => response.json()

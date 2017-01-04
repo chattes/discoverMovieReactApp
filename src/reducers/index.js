@@ -7,6 +7,7 @@ import { Map, List, fromJS } from 'immutable'
 const initState = fromJS({
     isFetching: false,
     movies: [],
+    pagination: {},
     lastUpdated: Date.now()
 
 })
@@ -17,8 +18,8 @@ const reducer = (state = initState, action) => {
         case RECEIVE_MOVIES:
         let newState = state.merge({
             isFetching: false,
-            // movies: List.of(action.movies),
-            movies: action.movies.movies,            
+            movies: action.data.movies,
+            pagination: action.data.pagination,            
             lastUpdated: action.receivedAt
         }) 
         return newState 
